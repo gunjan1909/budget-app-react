@@ -1,3 +1,4 @@
+import React from "react";
 import { Modal, Button, Stack } from "react-bootstrap";
 import {
   UNCATEGORIZED_BUDGET_ID,
@@ -6,8 +7,12 @@ import {
 import { currencyFormatter } from "../utils";
 
 export default function ViewExpensesModal({ budgetId, handleClose }) {
-  const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } =
-    useBudgets();
+  const {
+    getBudgetExpenses,
+    budgets,
+    deleteBudget,
+    deleteExpense,
+  } = useBudgets();
 
   const expenses = getBudgetExpenses(budgetId);
   const budget =
@@ -20,7 +25,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
       <Modal.Header closeButton>
         <Modal.Title>
           <Stack direction="horizontal" gap="2">
-            <div>Expenses - {budget?.name}</div>
+            <div>Expenses - {budgets.name}</div>
             {budgetId !== UNCATEGORIZED_BUDGET_ID && (
               <Button
                 onClick={() => {
